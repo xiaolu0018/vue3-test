@@ -1,0 +1,33 @@
+@forward 'element-plus/theme-chalk/src/dark/var.scss' with (
+  $colors: (
+    'primary': (
+      // 主色
+      'base': #3498db
+    ),
+    'success': (
+      // 成功色
+      'base': #03c439
+    ),
+    // 'warning': (
+    //   // 警告色
+    //   'base': #d89907
+    // ),
+    // 'danger': (
+    //   // 危险色
+    //   'base': #e26237
+    // ),
+    // 'error': (
+    //   // 错误色
+    //   'base': #ff5656
+     // )
+  ),
+  $bg-color: (
+    'page': #2a2a2a,
+    // 页面背景色
+    '': #2a2a2a,
+    // 默认背景色（用于菜单等）
+    'overlay': #1d1e1f // 浮层背景色
+  )
+);
+
+@use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *;
