@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# vue3-test
-vue3-ts-element-plus-vite
-=======
 ## 后台管理系统
 
  1. echart图标，`src\components\EchartVue`
@@ -33,4 +29,3 @@ npm run build
 ### 打包配置
 
 gzip+去除console.log
->>>>>>> 0a452af (Initial commit)
