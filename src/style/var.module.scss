@@ -1,0 +1,15 @@
+@use './variables.scss' as sassVar;
+:export {
+  sideWidth: #{sassVar.$uav-side-width}; // 注意使用插值语法
+  bigSideWidth: #{sassVar.$uav-big-side-width};
+  uaConsoleSize: #{sassVar.$uav-console-size};
+  uaTitleFontSize: #{sassVar.$uav-title-font-size};
+  headerHeight: #{sassVar.$header-height-default};
+  baseColor: #{sassVar.$base-color};
+  grayColor: #{sassVar.$gray-color};
+  primaryColor: #{sassVar.$primary-color};
+  activeColor: #{sassVar.$active-color};
+  dangerColor: #{sassVar.$danger-color};
+  warningColor: #{sassVar.$warning-color};
+  successColor: #{sassVar.$success-color};
+}

@@ -1,0 +1,101 @@
+//float
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.pull-left {
+  float: left;
+  @extend .clearfix;
+}
+.pull-right {
+  float: right;
+  @extend .clearfix;
+}
+//flex
+.flex-box {
+  display: flex;
+  align-items: center;
+}
+.flex-space-between {
+  @extend .flex-box;
+  justify-content: space-between;
+}
+.flex-start {
+  @extend .flex-box;
+  justify-content: flex-start;
+}
+//  margin-m-0 {margin:0px;}
+//  ua-mb-2 {margin-bottom:10px;}
+//  max-size 50px
+$spacing-config: (
+  'base': 5px,
+  // 基础间隔单位
+  'range': 10,
+  // 生成范围 0-10
+  'directions': (
+      // 支持的方向
+      '': 'all',
+      // 全边（如 .ua-m-2）
+      't': 'top',
+      'r': 'right',
+      'b': 'bottom',
+      'l': 'left'
+    )
+);
+
+@each $type in (margin, padding) {
+  @each $abbr, $dir in map-get($spacing-config, 'directions') {
+    @for $i from 0 through map-get($spacing-config, 'range') {
+      $prefix: if($type == margin, 'm', 'p'); // 动态前缀
+      $prop: if($abbr == '', $type, '#{$type}-#{$dir}');
+
+      body .#{$prefix}#{$abbr}-#{$i} {
+        #{$prop}: $i * map-get($spacing-config, 'base');
+      }
+    }
+  }
+}
+
+.ua-form-inline {
+  .el-input {
+    --el-input-width: 220px;
+  }
+  .el-select {
+    --el-select-width: 220px;
+  }
+  &-item-no-label::before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    margin-bottom: 8px;
+    line-height: 22px;
+    color: transparent;
+    padding: 0 12px 0 0;
+    min-height: 22px;
+  }
+}
+.ua-form-inline.el-form--inline .el-form-item {
+  margin-bottom: 0;
+}
+// 图标按钮
+html .ua-icon-btn.is-link {
+  padding: 8px 15px;
+}
+
+.form-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 5px;
+}

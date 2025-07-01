@@ -1,0 +1,27 @@
+/*单行溢出省略*/
+
+@mixin oneLineEsp($width) {
+  white-space: nowrap;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin text-overflow($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin clearfix() {
+  *zoom: 1;
+  &:after {
+    display: block;
+    content: 'clear';
+    height: 0;
+    line-height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}

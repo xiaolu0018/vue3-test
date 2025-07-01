@@ -1,0 +1,50 @@
+// 控制台样式
+// 基础变量
+$console-bg: #1e1e1e; // 深色背景
+$console-text: #d4d4d4; // 浅灰色文字
+$console-font: 'Courier New', monospace; // 等宽字体
+$padding-base: 12px; // 内边距
+
+.console-container {
+  background: $console-bg;
+  color: $console-text;
+  font-family: $console-font;
+  padding: $padding-base;
+  height: $uav-console-size;
+  overflow-y: auto;
+
+  // 消息输出区域
+  .output-area {
+    margin-bottom: $padding-base;
+    pre {
+      margin: 0;
+      white-space: pre-wrap; // 保留换行但允许自动换行
+    }
+  }
+}
+
+@mixin message-style($color) {
+  border-left: 3px solid $color;
+  padding-left: 10px;
+  margin: 8px 0;
+}
+
+// 生成不同级别的消息类
+$message-types: (
+  'info': $primary-color,
+  'error': $danger-color,
+  'warning': $warning-color
+);
+
+@each $type, $color in $message-types {
+  .message-#{$type} {
+    @include message-style($color);
+    // 添加特定图标（假设使用Font Awesome）
+    &::before {
+      content: '\f06a'; // 图标Unicode
+      font-family: 'Font Awesome 5 Free';
+      margin-right: 8px;
+      color: $color;
+    }
+  }
+}
