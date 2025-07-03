@@ -189,10 +189,6 @@ export default defineConfig({
       "element-plus/es/components/upload/style/index",
       "element-plus/es/components/checkbox/style/index"
     ],
-    esbuildOptions: {
-      drop: ['console', 'debugger'], // 移除 console 和 debugger
-      pure: ['console.log', 'console.warn'], // 标记纯函数（可选）
-    }
   },
   esbuild: {
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
