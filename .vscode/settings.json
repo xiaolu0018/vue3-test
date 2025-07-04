@@ -1,0 +1,46 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    // "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.cjs" // 明确指定配置文件路径
+  },
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    },
+  ],
+  // ESLint 设置
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "prettier.configPath": ".prettierrc.cjs", // 明确指向 JS 格式文件
+  "stylelint.validate": [
+    "vue",
+    "css",
+    "scss"
+  ],
+  // 其他设置
+  "files.eol": "\n",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "Codegeex.GenerationPreference": "automatic",
+  "Codegeex.RepoIndex": true,
+  "editor.tabSize": 2,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.enable": true
+}
