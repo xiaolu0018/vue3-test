@@ -89,6 +89,24 @@ export default defineConfig({
       threshold: 10240, // 仅压缩 >10KB 的文件
       deleteOriginFile: false, // 保留源文件
     }),
+    {
+      name: 'filter-warnings',
+      configResolved(config) {
+        // 过滤掉optimizeDeps依赖优化完成的提示
+        const originalInfo = config.logger.info;
+        config.logger.info = (msg, options) => {
+          if (
+            typeof msg === 'string' &&
+            (msg.includes('[vite] (client) ✨') ||
+              msg.includes('new dependencies optimized') ||
+              msg.includes('optimized dependencies changed'))
+          ) {
+            return;
+          }
+          originalInfo.call(config.logger, msg, options);
+        }
+      },
+    },
   ],
   // assetsInclude: ['**/*.json'],
   resolve: {
